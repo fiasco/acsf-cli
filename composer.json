@@ -1,0 +1,26 @@
+{
+    "name": "acquia/sf-cli",
+    "description": "Acquia Site Factory CLI",
+    "type": "project",
+    "require": {
+        "symfony/console": "^4.0",
+        "guzzlehttp/guzzle": "^6.0",
+        "symfony/yaml": "^4.0",
+        "symfony/finder": "^4.0"
+    },
+    "license": "GPL3",
+    "authors": [
+        {
+            "name": "Josh Waihi",
+            "email": "josh.waihi@acquia.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "SiteFactoryAPI\\": "src/"
+        }
+    },
+    "bin": ["sf-cli"]
+}
