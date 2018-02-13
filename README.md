@@ -21,6 +21,8 @@ credentials:
   username: <Your factory username>
   key: <Your factory API key>
 ```
+Documentation of how to find your API key is here: https://docs.acquia.com/site-factory/rest-api
+
 
 ## Usage
 
