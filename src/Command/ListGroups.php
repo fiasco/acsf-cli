@@ -10,38 +10,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use SiteFactoryAPI\Config\ConfigFile;
 
-class ListSites extends Command {
+class ListGroups extends Command {
   /**
    * @inheritdoc
    */
   protected function configure() {
     $this
-      ->setName('site:list')
-      ->setDescription('List site backups.')
+      ->setName('group:list')
+      ->setDescription('Get a list of groups.')
       ->addArgument(
         'sitegroup',
         InputArgument::REQUIRED,
         'Combination of sitename and environment in one word. E.g. mystack01live.'
-      )
-      ->addOption(
-        'limit',
-        'l',
-        InputOption::VALUE_OPTIONAL,
-        'A positive integer (max 100).',
-        10
-      )
-      ->addOption(
-        'page',
-        'p',
-        InputOption::VALUE_OPTIONAL,
-        'A positive integer.',
-        1
-      )
-      ->addOption(
-        'canary',
-        'c',
-        InputOption::VALUE_NONE,
-        'A positive integer.'
       );
   }
 
@@ -53,15 +33,10 @@ class ListSites extends Command {
 
     $client = ConfigFile::load($input->getArgument('sitegroup'))->getApiClient();
 
-    $response = $client->request('GET', "sites", [
-      'query' => [
-        'page' => $input->getOption('page'),
-        'limit' => $input->getOption('limit')
-      ]
-    ]);
+    $response = $client->request('GET', "groups");
     $data = $response->getBody();
     $data = json_decode($data, TRUE);
-    $list = $data['sites'];
+    $list = $data['groups'];
 
     if (empty($list)) {
       return;
