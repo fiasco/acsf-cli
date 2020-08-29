@@ -17,5 +17,7 @@ $application->addCommands([
   new SiteFactoryAPI\Command\ListGroups(),
   new SiteFactoryAPI\Command\TrafficMonthly(),
   new SiteFactoryAPI\Command\SiteFind(),
+  new SiteFactoryAPI\Command\SiteThemeRefresh(),
+  new SiteFactoryAPI\Command\TaskStatus(),
 ]);
 $application->run();
