@@ -18,7 +18,7 @@ class SiteFind extends Command {
   protected function configure() {
     $this
       ->setName('site:find')
-      ->setDescription('Searches a factory for a site name containing the search needle.')
+      ->setDescription('Searches for a site name containing the search needle.')
       ->addArgument(
         'sitegroup',
         InputArgument::REQUIRED,
